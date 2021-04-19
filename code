@@ -1,0 +1,42 @@
+int trig = 9;
+int echo = 10;
+int ping;
+int buzz = 11;
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(trig, OUTPUT);
+pinMode(echo, INPUT);
+Serial.begin(9600);
+pinMode(buzz, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trig, LOW);
+delayMicroseconds(10);
+digitalWrite(trig, HIGH);
+delayMicroseconds(10);
+digitalWrite(trig, LOW);
+ping = pulseIn(echo, HIGH);
+delay(25);
+Serial.println(ping);
+if (ping <= 5000)
+{
+  digitalWrite(buzz, HIGH);
+}
+else
+{
+  digitalWrite(buzz, LOW);
+}
+
+
+
+
+
+
+
+
+
+
+}         
